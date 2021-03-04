@@ -21,7 +21,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // Enum for y-position spawn points for bricks
     // Ground bricks are low and upper platform bricks are high
     enum BrickLevel: CGFloat {
-        
+        //
         case low = 0.0
         case high = 100.0
     }
@@ -77,7 +77,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
         
         anchorPoint = CGPoint.zero
-        
+        //
         let background = SKSpriteNode(imageNamed: "background")
         let xMid = frame.midX
         let yMid = frame.midY
