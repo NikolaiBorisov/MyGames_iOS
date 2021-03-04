@@ -61,7 +61,7 @@ class GameViewController: UIViewController {
         scnView.addSubview(label)
         score = 0
     }
-    
+    //
     func addShip() {
         scene.rootNode.addChildNode(ship)
     }
@@ -90,7 +90,7 @@ class GameViewController: UIViewController {
         
         return ship
     }
-    
+    //
     @objc func newGame() {
         button.isHidden = true
         duration = 5
