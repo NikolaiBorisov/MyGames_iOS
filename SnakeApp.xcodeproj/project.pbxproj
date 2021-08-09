@@ -34,6 +34,7 @@
 		FA93FDA226C0FD7B00E4310F /* ArithmeticProgressionSnakeSpeedStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93FDA126C0FD7B00E4310F /* ArithmeticProgressionSnakeSpeedStrategy.swift */; };
 		FA93FDA526C0FE5D00E4310F /* GeometricProgressionSnakeSpeedStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93FDA426C0FE5D00E4310F /* GeometricProgressionSnakeSpeedStrategy.swift */; };
 		FA93FDA926C103B200E4310F /* DifficultySettingsFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93FDA826C103B200E4310F /* DifficultySettingsFacade.swift */; };
+		FA93FDB026C1172000E4310F /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93FDAF26C1172000E4310F /* Observable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		FA93FDA126C0FD7B00E4310F /* ArithmeticProgressionSnakeSpeedStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticProgressionSnakeSpeedStrategy.swift; sourceTree = "<group>"; };
 		FA93FDA426C0FE5D00E4310F /* GeometricProgressionSnakeSpeedStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometricProgressionSnakeSpeedStrategy.swift; sourceTree = "<group>"; };
 		FA93FDA826C103B200E4310F /* DifficultySettingsFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultySettingsFacade.swift; sourceTree = "<group>"; };
+		FA93FDAF26C1172000E4310F /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 		FA41D5A326BE865F0077319E /* SnakeApp */ = {
 			isa = PBXGroup;
 			children = (
+				FA93FDAE26C1171000E4310F /* Observable */,
 				FA93FDA726C1038100E4310F /* Facade */,
 				FA93FD9926C0FC3400E4310F /* Protocols */,
 				FA93FD8E26C0F0F500E4310F /* Strategy */,
@@ -264,6 +267,14 @@
 			path = Facade;
 			sourceTree = "<group>";
 		};
+		FA93FDAE26C1171000E4310F /* Observable */ = {
+			isa = PBXGroup;
+			children = (
+				FA93FDAF26C1172000E4310F /* Observable.swift */,
+			);
+			path = Observable;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -394,6 +405,7 @@
 				FA41D5F326BE87070077319E /* CollisionCategories.swift in Sources */,
 				FA41D5E926BE86FA0077319E /* AppDelegate.swift in Sources */,
 				FA41D5F626BE87070077319E /* SnakeHead.swift in Sources */,
+				FA93FDB026C1172000E4310F /* Observable.swift in Sources */,
 				FA41D5D826BE86AD0077319E /* RecordsCaretaker.swift in Sources */,
 				FA93FD9726C0F8B900E4310F /* SequentialCreateOneAppleStrategy.swift in Sources */,
 				FA93FD9F26C0FD0400E4310F /* NotIncreaseSnakeSpeedStrategy.swift in Sources */,

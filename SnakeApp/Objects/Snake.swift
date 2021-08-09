@@ -12,7 +12,7 @@ import SpriteKit
 class Snake: SKShapeNode {
     
     /// Скорость перемещения
-    var moveSpeed = 125.0
+    var moveSpeed = Observable<Double>(125.0)
     
     /// Угол необходимый для расчета направления
     var angle: CGFloat = 0.0
@@ -73,8 +73,8 @@ class Snake: SKShapeNode {
     
     private func moveHead(_ head: SnakeBodyPart) {
         //расчитываем смещение точки
-        let dx = CGFloat(moveSpeed) * sin(angle);
-        let dy = CGFloat(moveSpeed) * cos(angle);
+        let dx = CGFloat(moveSpeed.value) * sin(angle);
+        let dy = CGFloat(moveSpeed.value) * cos(angle);
         //смещаем точку назначения головы
         let nextPosition = CGPoint(x: head.position.x + dx, y: head.position.y + dy)
         //действие перемещения головы

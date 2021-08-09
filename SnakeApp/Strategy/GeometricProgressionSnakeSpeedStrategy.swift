@@ -14,10 +14,10 @@ final class GeometricProgressionSnakeSpeedStrategy: SnakeSpeedStrategy {
     private let diff = 1.1
     func increaseSpeedByEatingApple() {
         guard let snake = snake else { return }
-        snake.moveSpeed *= diff
+        snake.moveSpeed.value *= diff
         if let maxSpeed = maxSpeed {
-            if snake.moveSpeed > maxSpeed {
-                snake.moveSpeed = maxSpeed
+            if snake.moveSpeed.value > maxSpeed {
+                snake.moveSpeed.value = maxSpeed
             }
         }
     }
