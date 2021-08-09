@@ -10,6 +10,33 @@ import SnapKit
 
 final class MainViewController: UIViewController {
     
+    private var selectedDifficulty: Difficulty {
+        switch self.difficultyLevelSegmentedControl.selectedSegmentIndex {
+        case 0: return .easy
+        case 1: return .medium
+        case 2: return .hard
+        case 3: return .insane
+        default: return .medium
+        }
+    }
+    
+    private lazy var difficultyLevelSegmentedControl: UISegmentedControl = {
+        let items = [
+            "Easy",
+            "Medium",
+            "Hard",
+            "Insane"
+        ]
+        let sc = UISegmentedControl(items: items)
+        sc.selectedSegmentIndex = 1
+        sc.backgroundColor = .lightGray
+        sc.layer.cornerRadius = 10
+        sc.layer.borderColor = UIColor.white.cgColor
+        sc.layer.borderWidth = 2
+        
+        return sc
+    }()
+    
     private lazy var startButton: UIButton = {
         let button =  UIButton()
         button.setTitle("START", for: .normal)
@@ -56,22 +83,23 @@ final class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-      super.viewWillAppear(animated)
-      navigationController?.setNavigationBarHidden(true, animated: animated)
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-      super.viewWillDisappear(animated)
-      navigationController?.setNavigationBarHidden(false, animated: animated)
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     @objc private func onStartButtonTapped(_ sender: UIButton) {
         guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController") as? GameViewController else { return }
         vc.delegate = self
+        vc.difficulty = self.selectedDifficulty
         //using closure
-//        vc.onGameEnd = { [weak self] result in
-//            self?.resultsLabel.text = "Last Result: \(result)"
-//        }
+        //        vc.onGameEnd = { [weak self] result in
+        //            self?.resultsLabel.text = "Last Result: \(result)"
+        //        }
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -83,11 +111,18 @@ final class MainViewController: UIViewController {
     
     private func setupLayouts() {
         [
+            difficultyLevelSegmentedControl,
             startButton,
             resultLabel,
             recordButton
         ]
         .forEach { view.addSubview($0) }
+        
+        difficultyLevelSegmentedControl.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
+            $0.leading.equalToSuperview().offset(20)
+        }
         
         startButton.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()

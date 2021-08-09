@@ -16,13 +16,34 @@ protocol GameViewControllerDelegate: AnyObject {
 final class GameViewController: UIViewController {
     
     weak var delegate: GameViewControllerDelegate?
-    var onGameEnd: ((Int) -> Void)?
+    var difficulty: Difficulty = .medium
+    private var createAppleStrategy: CreateApplesStrategy {
+        switch self.difficulty {
+        case .easy: return SequentialCreateOneAppleStrategy()
+        case .medium, .hard, .insane: return RandomCreateOneAppleStrategy()
+        }
+    }
+    private var snakeSpeedStrategy: SnakeSpeedStrategy {
+        switch self.difficulty {
+        case .easy, .medium: return NotIncreaseSnakeSpeedStrategy()
+        case .hard:
+            let strategy = ArithmeticProgressionSnakeSpeedStrategy()
+            strategy.maxSpeed = 350.0
+            return strategy
+        case .insane: return GeometricProgressionSnakeSpeedStrategy()
+        }
+    }
+    // using closure
+    //var onGameEnd: ((Int) -> Void)?
+    
     
     // MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let scene = GameScene(size: view.bounds.size)
+        let scene = GameScene(size: view.bounds.size,
+                              createApplesStrategy: self.createAppleStrategy,
+                              snakeSpeedStrategy: self.snakeSpeedStrategy)
         scene.gameDelegate = self
         // using closure
 //        scene.onGameEnd = { [weak self] result in

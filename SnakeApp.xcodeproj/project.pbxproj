@@ -26,6 +26,14 @@
 		FA41D5F626BE87070077319E /* SnakeHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41D5F026BE87070077319E /* SnakeHead.swift */; };
 		FA41D5F726BE87070077319E /* Snake.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41D5F126BE87070077319E /* Snake.swift */; };
 		FA41D5F826BE87070077319E /* SnakeBodyPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41D5F226BE87070077319E /* SnakeBodyPart.swift */; };
+		FA93FD9026C0F11500E4310F /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93FD8F26C0F11500E4310F /* Difficulty.swift */; };
+		FA93FD9426C0F5E500E4310F /* CreateApplesStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93FD9326C0F5E500E4310F /* CreateApplesStrategy.swift */; };
+		FA93FD9726C0F8B900E4310F /* SequentialCreateOneAppleStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93FD9626C0F8B900E4310F /* SequentialCreateOneAppleStrategy.swift */; };
+		FA93FD9B26C0FC5500E4310F /* SnakeSpeedStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93FD9A26C0FC5500E4310F /* SnakeSpeedStrategy.swift */; };
+		FA93FD9F26C0FD0400E4310F /* NotIncreaseSnakeSpeedStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93FD9E26C0FD0400E4310F /* NotIncreaseSnakeSpeedStrategy.swift */; };
+		FA93FDA226C0FD7B00E4310F /* ArithmeticProgressionSnakeSpeedStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93FDA126C0FD7B00E4310F /* ArithmeticProgressionSnakeSpeedStrategy.swift */; };
+		FA93FDA526C0FE5D00E4310F /* GeometricProgressionSnakeSpeedStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93FDA426C0FE5D00E4310F /* GeometricProgressionSnakeSpeedStrategy.swift */; };
+		FA93FDA926C103B200E4310F /* DifficultySettingsFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93FDA826C103B200E4310F /* DifficultySettingsFacade.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +60,14 @@
 		FA41D5F026BE87070077319E /* SnakeHead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeHead.swift; sourceTree = "<group>"; };
 		FA41D5F126BE87070077319E /* Snake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snake.swift; sourceTree = "<group>"; };
 		FA41D5F226BE87070077319E /* SnakeBodyPart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeBodyPart.swift; sourceTree = "<group>"; };
+		FA93FD8F26C0F11500E4310F /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
+		FA93FD9326C0F5E500E4310F /* CreateApplesStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateApplesStrategy.swift; sourceTree = "<group>"; };
+		FA93FD9626C0F8B900E4310F /* SequentialCreateOneAppleStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequentialCreateOneAppleStrategy.swift; sourceTree = "<group>"; };
+		FA93FD9A26C0FC5500E4310F /* SnakeSpeedStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeSpeedStrategy.swift; sourceTree = "<group>"; };
+		FA93FD9E26C0FD0400E4310F /* NotIncreaseSnakeSpeedStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotIncreaseSnakeSpeedStrategy.swift; sourceTree = "<group>"; };
+		FA93FDA126C0FD7B00E4310F /* ArithmeticProgressionSnakeSpeedStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticProgressionSnakeSpeedStrategy.swift; sourceTree = "<group>"; };
+		FA93FDA426C0FE5D00E4310F /* GeometricProgressionSnakeSpeedStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometricProgressionSnakeSpeedStrategy.swift; sourceTree = "<group>"; };
+		FA93FDA826C103B200E4310F /* DifficultySettingsFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultySettingsFacade.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +120,9 @@
 		FA41D5A326BE865F0077319E /* SnakeApp */ = {
 			isa = PBXGroup;
 			children = (
+				FA93FDA726C1038100E4310F /* Facade */,
+				FA93FD9926C0FC3400E4310F /* Protocols */,
+				FA93FD8E26C0F0F500E4310F /* Strategy */,
 				FA41D5EE26BE87070077319E /* Objects */,
 				FA41D5EB26BE87070077319E /* Game */,
 				FA41D5E326BE86BA0077319E /* Supporting Files */,
@@ -214,6 +233,35 @@
 				FA41D5F226BE87070077319E /* SnakeBodyPart.swift */,
 			);
 			path = Objects;
+			sourceTree = "<group>";
+		};
+		FA93FD8E26C0F0F500E4310F /* Strategy */ = {
+			isa = PBXGroup;
+			children = (
+				FA93FD8F26C0F11500E4310F /* Difficulty.swift */,
+				FA93FD9326C0F5E500E4310F /* CreateApplesStrategy.swift */,
+				FA93FD9626C0F8B900E4310F /* SequentialCreateOneAppleStrategy.swift */,
+				FA93FD9E26C0FD0400E4310F /* NotIncreaseSnakeSpeedStrategy.swift */,
+				FA93FDA126C0FD7B00E4310F /* ArithmeticProgressionSnakeSpeedStrategy.swift */,
+				FA93FDA426C0FE5D00E4310F /* GeometricProgressionSnakeSpeedStrategy.swift */,
+			);
+			path = Strategy;
+			sourceTree = "<group>";
+		};
+		FA93FD9926C0FC3400E4310F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				FA93FD9A26C0FC5500E4310F /* SnakeSpeedStrategy.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		FA93FDA726C1038100E4310F /* Facade */ = {
+			isa = PBXGroup;
+			children = (
+				FA93FDA826C103B200E4310F /* DifficultySettingsFacade.swift */,
+			);
+			path = Facade;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,17 +382,25 @@
 				FA41D5DC26BE86AD0077319E /* RecordsTableViewCell.swift in Sources */,
 				FA41D5F826BE87070077319E /* SnakeBodyPart.swift in Sources */,
 				FA41D5DB26BE86AD0077319E /* Record.swift in Sources */,
+				FA93FDA226C0FD7B00E4310F /* ArithmeticProgressionSnakeSpeedStrategy.swift in Sources */,
+				FA93FDA526C0FE5D00E4310F /* GeometricProgressionSnakeSpeedStrategy.swift in Sources */,
 				FA41D5DE26BE86AD0077319E /* GameViewController.swift in Sources */,
 				FA41D5D926BE86AD0077319E /* Game.swift in Sources */,
+				FA93FDA926C103B200E4310F /* DifficultySettingsFacade.swift in Sources */,
 				FA41D5F726BE87070077319E /* Snake.swift in Sources */,
+				FA93FD9B26C0FC5500E4310F /* SnakeSpeedStrategy.swift in Sources */,
 				FA41D5F526BE87070077319E /* Apple.swift in Sources */,
 				FA41D5DF26BE86AD0077319E /* MainViewController.swift in Sources */,
 				FA41D5F326BE87070077319E /* CollisionCategories.swift in Sources */,
 				FA41D5E926BE86FA0077319E /* AppDelegate.swift in Sources */,
 				FA41D5F626BE87070077319E /* SnakeHead.swift in Sources */,
 				FA41D5D826BE86AD0077319E /* RecordsCaretaker.swift in Sources */,
+				FA93FD9726C0F8B900E4310F /* SequentialCreateOneAppleStrategy.swift in Sources */,
+				FA93FD9F26C0FD0400E4310F /* NotIncreaseSnakeSpeedStrategy.swift in Sources */,
 				FA41D5DD26BE86AD0077319E /* RecordsTableViewController.swift in Sources */,
+				FA93FD9026C0F11500E4310F /* Difficulty.swift in Sources */,
 				FA41D5E726BE86FA0077319E /* SceneDelegate.swift in Sources */,
+				FA93FD9426C0F5E500E4310F /* CreateApplesStrategy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

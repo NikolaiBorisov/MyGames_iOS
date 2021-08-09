@@ -16,9 +16,26 @@ final class GameScene: SKScene {
     
     weak var gameDelegate: GameSceneDelegate?
     var onGameEnd: ((Int) -> Void)?
+    private let createApplesStrategy: CreateApplesStrategy
+    fileprivate let snakeSpeedStrategy: SnakeSpeedStrategy
+    init(size: CGSize,
+         createApplesStrategy: CreateApplesStrategy,
+         snakeSpeedStrategy: SnakeSpeedStrategy) {
+        self.createApplesStrategy = createApplesStrategy
+        self.snakeSpeedStrategy = snakeSpeedStrategy
+        super.init(size: size)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     /// Наша змея
-    var snake: Snake?
+    var snake: Snake? {
+        didSet {
+            snakeSpeedStrategy.snake = snake
+        }
+    }
     
     /// Яблоко в игре.
     var apple: Apple?
@@ -129,9 +146,8 @@ final class GameScene: SKScene {
     
     fileprivate func createApple(){
         guard let view = self.view, let scene = view.scene else { return }
-        let randX  = CGFloat(arc4random_uniform(UInt32(scene.frame.maxX - 5)) + 1)
-        let randY  = CGFloat(arc4random_uniform(UInt32(scene.frame.maxY - 5)) + 1)
-        let apple = Apple(position: CGPoint(x: randX, y: randY))
+        let apples = self.createApplesStrategy.createApples(in: scene.frame)
+        guard let apple = apples.first else { return }
         self.apple = apple
         self.addChild(apple)
     }
@@ -176,6 +192,7 @@ extension GameScene: SKPhysicsContactDelegate {
         self.apple = nil
         //создаем новое яблоко
         createApple()
+        self.snakeSpeedStrategy.increaseSpeedByEatingApple()
     }
     
     private func headDidCollideWall(_ contact: SKPhysicsContact) {
