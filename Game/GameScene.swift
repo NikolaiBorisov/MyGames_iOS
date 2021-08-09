@@ -16,13 +16,9 @@ final class GameScene: SKScene {
     
     weak var gameDelegate: GameSceneDelegate?
     var onGameEnd: ((Int) -> Void)?
-    private let createApplesStrategy: CreateApplesStrategy
-    fileprivate let snakeSpeedStrategy: SnakeSpeedStrategy
-    init(size: CGSize,
-         createApplesStrategy: CreateApplesStrategy,
-         snakeSpeedStrategy: SnakeSpeedStrategy) {
-        self.createApplesStrategy = createApplesStrategy
-        self.snakeSpeedStrategy = snakeSpeedStrategy
+    fileprivate let difficultyFacade: DifficultySettingsFacade
+    init(size: CGSize, difficulty: Difficulty) {
+        self.difficultyFacade = DifficultySettingsFacade(difficulty: difficulty)
         super.init(size: size)
     }
     
@@ -33,7 +29,7 @@ final class GameScene: SKScene {
     /// Наша змея
     var snake: Snake? {
         didSet {
-            snakeSpeedStrategy.snake = snake
+            difficultyFacade.snake = snake
         }
     }
     
@@ -145,11 +141,9 @@ final class GameScene: SKScene {
     }
     
     fileprivate func createApple(){
-        guard let view = self.view, let scene = view.scene else { return }
-        let apples = self.createApplesStrategy.createApples(in: scene.frame)
-        guard let apple = apples.first else { return }
-        self.apple = apple
-        self.addChild(apple)
+        let apple = self.difficultyFacade.createApples(in: self).first!
+           self.apple = apple
+           self.addChild(apple)
     }
     
     fileprivate func restartGame() {
@@ -192,7 +186,7 @@ extension GameScene: SKPhysicsContactDelegate {
         self.apple = nil
         //создаем новое яблоко
         createApple()
-        self.snakeSpeedStrategy.increaseSpeedByEatingApple()
+        self.difficultyFacade.increaseSnakeSpeed()
     }
     
     private func headDidCollideWall(_ contact: SKPhysicsContact) {

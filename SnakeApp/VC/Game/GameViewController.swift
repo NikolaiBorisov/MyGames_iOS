@@ -41,9 +41,7 @@ final class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let scene = GameScene(size: view.bounds.size,
-                              createApplesStrategy: self.createAppleStrategy,
-                              snakeSpeedStrategy: self.snakeSpeedStrategy)
+        let scene = GameScene(size: view.bounds.size, difficulty: self.difficulty)
         scene.gameDelegate = self
         // using closure
 //        scene.onGameEnd = { [weak self] result in
